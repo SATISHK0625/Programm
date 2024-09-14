@@ -1,0 +1,486 @@
+1) duplicate count
+#include <stdio.h>
+
+int main() {
+   int s,d,m,c=0;
+   scanf("%d",&s);
+   int b[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   for(int i=0;i<s;i++)
+   {
+       d=0;
+       for(int j=i+1;j<s;j++)
+       {
+           if(b[i]==b[j] && b[i]!=m)
+           {
+               d++;
+               b[j]=m;
+           }
+       }
+       c=c+d;
+   
+   }
+  printf("%d",c);
+   
+}
+
+3)
+#include <stdio.h>
+
+int main() {
+   int s,rot,temp;
+   scanf("%d",&s);
+   int b[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   printf("enter the rotation value");
+   scanf("%d",&rot);
+   while(rot>0)
+   {
+       temp=b[s-1];
+       for(int i=s-1;i>0;i--)
+       {
+          b[i]=b[i-1];
+          
+       }
+       b[0]=temp;
+       rot--;
+   }
+   for(int i=0;i<s;i++)
+   {
+        printf("%d \n",b[i]);
+   }
+}
+
+4)
+#include <stdio.h>
+
+int main() {
+   int s,temp;
+   scanf("%d",&s);
+   int b[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   int max=b[0];
+   int min=b[0];
+   for(int i=0;i<s;i++)
+   {
+       if(b[i]>max)
+       {
+           max=b[i];
+       }
+       if(b[i]<min)
+       {
+           min=b[i];
+       }
+   }
+   printf("The maximum is %d & the minimum is %d",max,min);
+}
+
+5)
+#include <stdio.h>
+
+int main() {
+   int s,sum,temp,count=0;
+   scanf("%d",&s);
+   int b[s],sum1[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   printf("Enter the resultant sum");
+   scanf("%d",&sum);
+   for(int i=0;i<s;i++)
+   {
+       for(int j=i+1;j<s;j++)
+       {
+         sum1[i]=b[i]+b[j];
+         {
+             if(sum1[i]==sum)
+             {
+                 count++;
+                 printf("(%d,%d)",b[i],b[j]);
+             }
+             
+       }
+   }
+   
+   }
+   if(count==0)
+   {
+       printf("No matches found");
+   }
+}
+
+6)
+#include <stdio.h>
+
+int main() {
+   int s,j=0,k=0,c,l;
+   scanf("%d",&s);
+   int b[s],b1[s],b2[s],mer[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   for(int i=0;i<s;i++)
+   {
+       if(b[i]!=0)
+       {
+           b1[j]=b[i];
+           j++;
+          
+       }
+       else
+       {
+           
+          b2[k]=b[i];
+          k++;
+       }
+   }
+   l=k+j;
+   for(int i=0;i<j;i++)
+   {
+       mer[i]=b1[i];
+   }
+   for(int i=0,m=j;j<l && i<k;i++,j++)
+   {
+       mer[j]=b2[i];
+   }
+   for(int i=0;i<l;i++)
+   {
+       printf("%d \n",mer[i]);
+   }
+}
+
+7)
+#include <stdio.h>
+
+int main() {
+   int s,p,i;
+   scanf("%d",&s);
+   int b[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   printf("Enter the position to delete");
+   scanf("%d",&p);
+   if(p>s-1)
+   {
+       printf("Invalid position to remove");
+   }
+   else
+   {
+   i=0;
+   while(i!=p)
+   {
+     i++;  
+   }
+   while(i<s)
+   {
+       b[i]=b[i+1];
+       i++;
+   }
+   s--;
+   for(int i=0;i<s;i++)
+   {
+       printf("%d ",b[i]);
+   }
+   }
+   
+}
+
+8)
+#include <stdio.h>
+
+int main() {
+   int s,p,i,x,temp;
+   printf("Enter the size ");
+   scanf("%d",&s);
+   int b[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   int t;
+   printf("Enter the size ");
+   scanf("%d",&t);
+   int b1[t];
+   for(int i=0;i<t;i++)
+   {
+       scanf("%d",&b1[i]);
+   }
+   x=s+t;
+  int mer[x];
+  if(s>0)
+  {
+   for(int i=0;i<s;i++)
+   {
+       mer[i]=b[i];
+   }
+   for(int i=0,j=s;i<t && j<x;i++,j++)
+   {
+       mer[j]=b1[i];
+   }
+    for(int i=0;i<x;i++)
+    {
+        for(int j=i+1;j<x;j++)
+        {
+            if(mer[i]>mer[j])
+            {
+                temp=mer[i];
+                mer[i]=mer[j];
+                mer[j]=temp;
+            }
+        }
+    }
+    printf("Merged sorted array is : \n");
+    for(int i=0;i<x;i++)
+    {
+        printf("%d \n",mer[i]);
+    }
+  }
+}
+  
+9)
+#include <stdio.h>
+
+int main() {
+   int s;
+   printf("Enter the size ");
+   scanf("%d",&s);
+   int b[s],product[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+   for(int i=0;i<s;i++)
+   {
+       product[i]=1;
+       for(int j=s-1;j>=0;j--)
+       {
+           if(i==j)
+           {
+           continue;
+           }
+           else
+           {
+           product[i]=product[i]*b[j];
+           }
+       }
+       printf("%d \n",product[i]);
+   }
+}
+
+11)
+#include <stdio.h>
+
+int main() {
+   int s,m,count;
+   printf("Enter the size ");
+   scanf("%d",&s);
+   int b[s];
+   for(int i=0;i<s;i++)
+   {
+       scanf("%d",&b[i]);
+   }
+  for(int i=0;i<s;i++)
+  {
+      count=0;
+      for(int j=s-1;j>=0;j--)
+      {
+          if(b[i]>b[j])
+          {
+          count++;
+          }
+      }
+  
+  printf("%d \n",count);
+  }
+}
+    
+13)
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int s,count;
+    scanf("%d",&s);
+    int b[s],count1[s];
+    for(int i=0;i<s;i++)
+    {
+        scanf("%d",&b[i]);
+    }
+    for(int i=0;i<s;i++)
+    {
+        count=0;
+        for(int j=i+1;j<s;j++)
+    {
+        if(b[i]>b[j])
+        {
+            count++;
+        }
+    }
+    printf("%d ",count);
+    }
+
+    return 0;
+}
+
+14)
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int s,m,k,count=0,l=0;
+    scanf("%d",&s);
+    int b[s],b1[s],b2[100];
+    for(int i=0;i<s;i++)
+    {
+        scanf("%d",&b[i]);
+    }
+    for(int i=0;i<s;i++)
+   {
+       count=0;
+       for(int j=i+1;j<s;j++)
+       {
+           if(b[i]==b[j])
+           {
+               b1[k]=b[i];
+               k++;
+               count++;
+           }
+          
+       }
+       if(count==0)
+       {
+           b2[l]=b[i];
+           l++;
+           
+       }
+       
+   }
+   
+   for(int i=0;i<l;i++)
+   {
+       printf("%d ",b2[i]);
+   }
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    int s,k=0,count,m=0;
+    scanf("%d",&s);
+    int b[s],b1[s];
+    for(int i=0;i<s;i++)
+    {
+        scanf("%d",&b[i]);
+    }
+    for(int i=0;i<s;i++)
+    {
+        count=0;
+        for(int j=i+1;j<s;j++)
+        {
+            if(b[i]==b[j])
+            {
+                b1[k]=j;
+                k++;
+            }
+        }
+    }
+    if(k==0)
+    {
+        printf("%d",m);
+    }
+    else
+    {
+    int max=b1[0];
+    for(int i=0;i<k;i++)
+    {
+        if(max<b1[i])
+        {
+            max=b1[i];
+        }
+    }
+    printf("%d",max);
+    }
+}
+
+#include <stdio.h>
+
+int main() {
+    int s;
+    scanf("%d", &s);
+    int b[s], counted[s];
+
+    for (int i = 0; i < s; i++) {
+        scanf("%d", &b[i]);
+        counted[i] = 0; // Initialize counted array to 0
+    }
+
+    for (int i = 0; i < s; i++) {
+        if (counted[i] == 0) { // Check if the element is already counted
+            int count = 0;
+            for (int j = 0; j < s; j++) {
+                if (b[i] == b[j]) {
+                    count++;
+                    counted[j] = 1; // Mark this element as counted
+                }
+            }
+            printf("%d occurs %d times\n", b[i], count); // Print the element and its frequency
+        }
+    }
+
+    return 0;
+}
+
+Squaring duplicate elemnets
+#include<stdio.h>
+int main()
+{
+    int s,count=0;
+    scanf("%d",&s);
+    int b[s],b1[s];
+    for(int i=0;i<s;i++)
+    {
+        scanf("%d",&b[i]);
+    }
+    for(int i=0;i<s;i++)
+    {
+        count=0;
+        for(int j=0;j<s;j++)
+        {
+            if(i!=j)
+            {
+                if(b[i]==b[j])
+                {
+                    count++;
+                }
+                }
+            }
+            if(count>0)
+            {
+                b1[i]=b[i]*b[i];
+            }
+            else
+            {
+                b1[i]=b[i];
+            }
+        }
+        for(int i=0;i<s;i++)
+        {
+            printf("%d ",b1[i]);
+        }
+}
+    
